@@ -16,21 +16,30 @@ module.exports = function Game() {
   let currentPlayer = 0;
   let isGettingOutOfPenaltyBox = false;
 
-  var currentCategory = function() {
-    if (places[currentPlayer] == 0) return "Pop";
-    if (places[currentPlayer] == 4) return "Pop";
-    if (places[currentPlayer] == 8) return "Pop";
-    if (places[currentPlayer] == 1) return "Science";
-    if (places[currentPlayer] == 5) return "Science";
-    if (places[currentPlayer] == 9) return "Science";
-    if (places[currentPlayer] == 2) return "Sports";
-    if (places[currentPlayer] == 6) return "Sports";
-    if (places[currentPlayer] == 10) return "Sports";
-    return "Rock";
   const didPlayerNotWin = function() {
     return !(purses[currentPlayer] == 6);
   };
 
+  const currentCategory = function() {
+    switch (places[currentPlayer]) {
+      case 0:
+      case 4:
+      case 8:
+        return "Pop";
+        break;
+      case 1:
+      case 5:
+      case 9:
+        return "Science";
+        break;
+      case 2:
+      case 6:
+      case 10:
+        return "Sports";
+        break;
+      default:
+        return "Rock";
+    }    
   };
 
   for (let i = 0; i < 50; i++) {
