@@ -115,6 +115,10 @@ module.exports = function Game() {
     }
   };
 
+  this.rotateToNextPlayer = function() {
+    currentPlayer += 1;
+    if (currentPlayer == players.length) currentPlayer = 0;
+  };
   this.wasCorrectlyAnswered = function() {
     if (inPenaltyBox[currentPlayer]) {
       if (isGettingOutOfPenaltyBox) {
@@ -128,13 +132,9 @@ module.exports = function Game() {
         );
 
         var winner = didPlayerWin();
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
 
         return winner;
       } else {
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
         return true;
       }
     } else {
@@ -150,8 +150,6 @@ module.exports = function Game() {
 
       var winner = didPlayerWin();
 
-      currentPlayer += 1;
-      if (currentPlayer == players.length) currentPlayer = 0;
 
       return winner;
     }
@@ -162,8 +160,6 @@ module.exports = function Game() {
     console.log(players[currentPlayer] + " was sent to the penalty box");
     inPenaltyBox[currentPlayer] = true;
 
-    currentPlayer += 1;
-    if (currentPlayer == players.length) currentPlayer = 0;
     return true;
   };
 };
