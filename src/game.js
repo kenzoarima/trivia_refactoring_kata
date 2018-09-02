@@ -119,37 +119,29 @@ module.exports = function Game() {
     currentPlayer += 1;
     if (currentPlayer == players.length) currentPlayer = 0;
   };
+
+  const addCoinToCurrentPlayerPurse = function() {
+    console.log("Answer was correct!!!!");
+    purses[currentPlayer] += 1;
+    console.log(players[currentPlayer] + " now has " + purses[currentPlayer] + " Gold Coins.");
+  };
+
   this.wasCorrectlyAnswered = function() {
     if (inPenaltyBox[currentPlayer]) {
       if (isGettingOutOfPenaltyBox) {
-        console.log("Answer was correct!!!!");
-        purses[currentPlayer] += 1;
-        console.log(
-          players[currentPlayer] +
-            " now has " +
-            purses[currentPlayer] +
-            " Gold Coins."
-        );
 
         var winner = didPlayerWin();
+        addCoinToCurrentPlayerPurse();
 
         return winner;
       } else {
         return true;
       }
     } else {
-      console.log("Answer was correct!!!!");
-
-      purses[currentPlayer] += 1;
-      console.log(
-        players[currentPlayer] +
-          " now has " +
-          purses[currentPlayer] +
-          " Gold Coins."
-      );
 
       var winner = didPlayerWin();
 
+      addCoinToCurrentPlayerPurse();
 
       return winner;
     }
