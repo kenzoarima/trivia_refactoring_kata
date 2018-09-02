@@ -1,20 +1,23 @@
 module.exports = function Game() {
-  var players = new Array();
-  var places = new Array(6);
-  var purses = new Array(6);
-  var inPenaltyBox = new Array(6);
+  const players = [];
+  const places = [];
+  const purses = [];
 
-  var popQuestions = new Array();
-  var scienceQuestions = new Array();
-  var sportsQuestions = new Array();
-  var rockQuestions = new Array();
+  /**
+   * For each player, store the flag, to tell if that player `i` is in penalty box or not.
+   */
+  const inPenaltyBox = [];
 
-  var currentPlayer = 0;
-  var isGettingOutOfPenaltyBox = false;
+  const popQuestions = [];
+  const scienceQuestions = [];
+  const sportsQuestions = [];
+  const rockQuestions = [];
 
   var didPlayerWin = function() {
     return !(purses[currentPlayer] == 6);
   };
+  let currentPlayer = 0;
+  let isGettingOutOfPenaltyBox = false;
 
   var currentCategory = function() {
     if (places[currentPlayer] == 0) return "Pop";
@@ -33,7 +36,7 @@ module.exports = function Game() {
     return "Rock Question " + index;
   };
 
-  for (var i = 0; i < 50; i++) {
+  for (let i = 0; i < 50; i++) {
     popQuestions.push("Pop Question " + i);
     scienceQuestions.push("Science Question " + i);
     sportsQuestions.push("Sports Question " + i);
