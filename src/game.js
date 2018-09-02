@@ -13,9 +13,6 @@ module.exports = function Game() {
   const sportsQuestions = [];
   const rockQuestions = [];
 
-  var didPlayerWin = function() {
-    return !(purses[currentPlayer] == 6);
-  };
   let currentPlayer = 0;
   let isGettingOutOfPenaltyBox = false;
 
@@ -30,6 +27,8 @@ module.exports = function Game() {
     if (places[currentPlayer] == 6) return "Sports";
     if (places[currentPlayer] == 10) return "Sports";
     return "Rock";
+  const didPlayerNotWin = function() {
+    return !(purses[currentPlayer] == 6);
   };
 
   this.createRockQuestion = function(index) {
