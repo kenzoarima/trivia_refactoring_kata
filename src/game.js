@@ -128,22 +128,16 @@ module.exports = function Game() {
 
   this.wasCorrectlyAnswered = function() {
     if (inPenaltyBox[currentPlayer]) {
+      
       if (isGettingOutOfPenaltyBox) {
-
-        var winner = didPlayerWin();
         addCoinToCurrentPlayerPurse();
-
-        return winner;
+        return didPlayerNotWin();
       } else {
         return true;
       }
     } else {
-
-      var winner = didPlayerWin();
-
       addCoinToCurrentPlayerPurse();
-
-      return winner;
+      return didPlayerNotWin();
     }
   };
 
