@@ -31,15 +31,13 @@ module.exports = function Game() {
     return !(purses[currentPlayer] == 6);
   };
 
-  this.createRockQuestion = function(index) {
-    return "Rock Question " + index;
   };
 
   for (let i = 0; i < 50; i++) {
     popQuestions.push("Pop Question " + i);
     scienceQuestions.push("Science Question " + i);
     sportsQuestions.push("Sports Question " + i);
-    rockQuestions.push(this.createRockQuestion(i));
+    rockQuestions.push("Rock Question " + i);
   }
 
   this.isPlayable = function(howManyPlayers) {
