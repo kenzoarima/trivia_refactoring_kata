@@ -65,11 +65,21 @@ module.exports = function Game() {
     return players.length;
   };
 
-  var askQuestion = function() {
-    if (currentCategory() == "Pop") console.log(popQuestions.shift());
-    if (currentCategory() == "Science") console.log(scienceQuestions.shift());
-    if (currentCategory() == "Sports") console.log(sportsQuestions.shift());
-    if (currentCategory() == "Rock") console.log(rockQuestions.shift());
+  const askQuestion = function() {
+    switch (currentCategory()) {
+      case "Pop":
+        console.log(popQuestions.shift());
+        break;
+      case "Science":
+        console.log(scienceQuestions.shift());
+        break;
+      case "Sports":
+        console.log(sportsQuestions.shift());
+        break;
+      case "Rock":
+        console.log(rockQuestions.shift());
+        break;
+    }
   };
 
   this.roll = function(roll) {
