@@ -99,18 +99,14 @@ module.exports = function Game() {
     if (inPenaltyBox[currentPlayer]) {
       if (roll % 2 != 0) {
         isGettingOutOfPenaltyBox = true;
+        console.log(players[currentPlayer] + " is getting out of the penalty box");
 
-        console.log(
-          players[currentPlayer] + " is getting out of the penalty box"
-        );
         getNewPlaceAfterRolling(roll);
         console.log("The category is " + currentCategory());
         askQuestion();
       } else {
-        console.log(
-          players[currentPlayer] + " is not getting out of the penalty box"
-        );
         isGettingOutOfPenaltyBox = false;
+        console.log(players[currentPlayer] + " is not getting out of the penalty box");
       }
     } else {
       getNewPlaceAfterRolling(roll);
